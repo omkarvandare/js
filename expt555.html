@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px auto;
+            font-size: 16px;
+        }
+        input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        h3 {
+            margin-top: 20px;
+        }
+        #timerDisplay {
+            font-size: 24px;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <h1>42318_Ayush_Dhoot</h1>
+    
+    <label for="endDate">Enter End Date & Time (DD-MM-YYYY HH:MM):</label>
+    <input type="datetime-local" id="endDate">
+    <button onclick="startCountdown()">Start Countdown</button>
+    <h3>Time Remaining:</h3>
+    <p id="timerDisplay">00:00:00</p>
+    <script>
+        let countdownInterval;
+        function startCountdown() {
+            const endDateInput = document.getElementById("endDate").value;
+            const endDate = new Date(endDateInput);
+            if (isNaN(endDate.getTime())) {
+                document.getElementById("timerDisplay").innerText = "Invalid Date/Time";
+                return;
+            }
+            clearInterval(countdownInterval);
+                   countdownInterval = setInterval(() => {
+                const now = new Date();
+                const timeDiff = endDate - now;
+                if (timeDiff <= 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("timerDisplay").innerText = "Time's up!";
+                    return;
+                }
+                const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+                const seconds = Math.floor((timeDiff / 1000) % 60);
+                document.getElementById("timerDisplay").innerText = 
+                  
+  
+`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

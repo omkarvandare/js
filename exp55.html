@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #content {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 20px;
+      cursor: pointer;
+      background-color: #007BFF; /* Default button color */
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>Experiment 9</h1>
+    <button class="button" id="colorButton">Hover Button</button>
+    <button class="button" id="colorInput" >Focus Event</button>
+  </div>
+  <script>
+    const colorButton = document.getElementById('colorButton');
+    const colorInput = document.getElementById('colorInput');
+    colorButton.onmouseover = function() {
+      document.body.style.backgroundColor = '#e0f7fa';
+      colorButton.style.backgroundColor = '#4CAF50'; 
+    };
+    colorButton.onmouseout = function() {
+      document.body.style.backgroundColor = '';
+      colorButton.style.backgroundColor = ''; 
+    };
+    colorInput.onfocus = function() {
+      document.body.style.backgroundColor = '#ffe0b2';
+      colorInput.style.backgroundColor='#333';
+    };
+    colorInput.onblur = function() {
+      document.body.style.backgroundColor = '';
+      colorInput.style.backgroundColor='';
+    };
+  </script>
+</body>
+</html>
